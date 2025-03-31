@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简历及岗位职责分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4A90E2',
+                        secondary: '#6B7280'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #E8F4FC 0%, #FFFFFF 100%);
+        }
+        .input-area {
+            transition: all 0.3s ease;
+        }
+        .input-area:focus-within {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            resize: none;
+            transition: all 0.3s ease;
+        }
+        textarea:focus {
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <div class="max-w-[1200px] mx-auto px-4 py-12">
+        <div class="fade-in-up">
+            <h1 class="text-3xl font-bold text-center mb-2">简历及岗位职责分析</h1>
+            <div class="w-20 h-1 mx-auto bg-gradient-to-r from-primary to-secondary rounded-full mb-8"></div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-info-circle text-primary mr-2"></i>
+                    <p class="text-gray-600 text-base leading-relaxed">
+                        使用了 deepseek R1 模型，可以深度分析你的简历；请先上传简历和岗位职责，越详细越好，我将会帮你分析简历，同时给出优化建议。
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 input-area">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold">岗位职责分析</h2>
+                        <div class="text-sm text-gray-500 character-count">0/2000</div>
+                    </div>
+                    <div class="relative">
+                        <textarea 
+                            class="w-full h-[180px] p-4 border border-gray-200 rounded-lg focus:outline-none"
+                            placeholder="请输入岗位职责详情..."
+                            maxlength="2000"
+                        ></textarea>
+                        <button class="absolute right-3 top-3 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 input-area">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold">简历分析</h2>
+                        <div class="text-sm text-gray-500 character-count">0/2000</div>
+                    </div>
+                    <div class="relative">
+                        <textarea 
+                            class="w-full h-[180px] p-4 border border-gray-200 rounded-lg focus:outline-none"
+                            placeholder="请输入简历内容..."
+                            maxlength="2000"
+                        ></textarea>
+                        <button class="absolute right-3 top-3 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-all duration-300 shadow-lg">
+                        开始分析
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textareas = document.querySelectorAll('textarea');
+            
+            textareas.forEach(textarea => {
+                const counter = textarea.closest('.input-area').querySelector('.character-count');
+                const clearBtn = textarea.nextElementSibling;
+                
+                textarea.addEventListener('input', function() {
+                    counter.textContent = `${this.value.length}/2000`;
+                });
+                
+                clearBtn.addEventListener('click', function() {
+                    textarea.value = '';
+                    counter.textContent = '0/2000';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

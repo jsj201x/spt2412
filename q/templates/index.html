@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超级面试官</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#22C55E',
+                        secondary: '#64748B'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        .search-input::placeholder {
+            color: #9CA3AF;
+        }
+        .tab-item.active {
+            color: #22C55E;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-md mx-auto min-h-screen bg-white">
+        <header class="px-4 py-3 flex items-center justify-between border-b">
+            <div class="flex items-center">
+                <button class="p-2">
+                    <i class="fas fa-arrow-left text-gray-600"></i>
+                </button>
+                <h1 class="ml-2 text-lg font-medium">首页</h1>
+            </div>
+            <div class="flex items-center">
+                <button class="p-2">
+                    <i class="fas fa-ellipsis-h text-gray-600"></i>
+                </button>
+                <button class="p-2 ml-2">
+                    <i class="fas fa-share text-gray-600"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="px-4 pt-8">
+            <div class="text-center mb-4">
+                <h2 class="text-3xl font-bold mb-2">超级面试官</h2>
+                <p class="text-gray-500 text-lg">超级面试官</p>
+            </div>
+
+            <div class="mt-8 mb-6">
+                <div class="relative">
+                    <form method="get" action="/inde_data/">
+                        <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                            <input type="text" placeholder="请输入岗位、薪资、城市" name="username"
+                                   class="w-full bg-transparent border-none outline-none text-gray-700 search-input">
+                        </div>
+                        <button class="mt-4 w-full bg-primary text-white py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors">
+                            <a href="{{ url_for('index_data') }}">开始搜索岗位</a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-4 mt-8">
+                <a href="/inde_fx/"><button class="px-6 py-2 bg-gray-100 !rounded-button text-gray-600 hover:bg-gray-200 transition-colors whitespace-nowrap">
+                    简历分析
+                </button></a>
+                <a href="/index_ms/"><button class="px-6 py-2 bg-gray-100 !rounded-button text-gray-600 hover:bg-gray-200 transition-colors whitespace-nowrap">
+                    AI超级面试官
+                </button></a>
+                <button class="px-6 py-2 bg-gray-100 !rounded-button text-gray-600 hover:bg-gray-200 transition-colors whitespace-nowrap">
+                    查看搜索结果
+                </button>
+            </div>
+        </main>
+
+        <footer class="fixed bottom-0 left-0 right-0 border-t bg-white">
+            <div class="max-w-md mx-auto flex justify-around py-3">
+                <button class="tab-item active flex flex-col items-center">
+                    <i class="fas fa-home mb-1"></i>
+                    <span class="text-sm">Tab1</span>
+                </button>
+                <button class="tab-item flex flex-col items-center text-gray-400">
+                    <i class="fas fa-search mb-1"></i>
+                    <span class="text-sm">Tab2</span>
+                </button>
+                <button class="tab-item flex flex-col items-center text-gray-400">
+                    <i class="fas fa-user mb-1"></i>
+                    <span class="text-sm">Tab3</span>
+                </button>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

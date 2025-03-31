@@ -1,0 +1,65 @@
+:root {
+    --primary: #4A90E2;    /* 活力蓝 */
+    --secondary: #FF6B6B;  /* 珊瑚红 */
+    --background: #F5F7FA;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, sans-serif;
+    background: var(--background);
+}
+
+.header {
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    padding: 15px;
+    margin-bottom: 60px;
+}
+
+.btn {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.nav-tabs {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.tab {
+    padding: 12px;
+    text-align: center;
+    color: #666;
+}
+
+.upload-zone {
+    border: 2px dashed var(--primary);
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.chat-bubble {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
